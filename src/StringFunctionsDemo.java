@@ -1,7 +1,7 @@
 public class StringFunctionsDemo {
     public static void main(String[] args) {
 
-        String name  = "shashi s";
+        String name  = "Rajiv";
         String title = "Ranjan";
 
         // length()
@@ -30,9 +30,10 @@ public class StringFunctionsDemo {
         System.out.println("name in Lowercase: " + name.toLowerCase());
         System.out.println("title in Lowercase: " + title.toLowerCase());
 
-        // trim()
-        String demo = "  Rajiv Ranjan  ";
-        System.out.println("Before trim: '" + demo + "'");
-        System.out.println("After trim: '" + demo.trim() + "'");
+//        // trim()
+//        String demo = "  Rajiv Ranjan  ";
+//        System.out.println("Before trim: '" + demo + "'");
+//        System.out.println("After trim: '" + demo.trim() + "'");
+
     }
 }
