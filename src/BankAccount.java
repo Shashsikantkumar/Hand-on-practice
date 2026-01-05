@@ -1,0 +1,61 @@
+class BankAccount {
+
+    // Attributes
+    int accountNumber;
+    String holderName;
+    double balance;
+
+    // Default Constructor
+    BankAccount() {
+        this.accountNumber = 0;
+        this.holderName = "Generic Account";
+        this.balance = 0.0;
+    }
+
+    // Parameterized Constructor
+    BankAccount(int accountNumber, String holderName, double balance) {
+        this.accountNumber = accountNumber;
+        this.holderName = holderName;
+        this.balance = balance;
+    }
+
+    // Deposit Method
+    void deposit(double amount) {
+        this.balance = this.balance + amount;
+        System.out.println("Deposited Amount: " + amount);
+    }
+
+    // Withdraw Method
+    void withdraw(double amount) {
+        if (amount <= this.balance) {
+            this.balance = this.balance - amount;
+            System.out.println("Withdrawn Amount: " + amount);
+        } else {
+            System.out.println("Insufficient Balance!");
+        }
+    }
+
+    // Display Account Details
+    void display() {
+        System.out.println("Account Number: " + this.accountNumber);
+        System.out.println("Holder Name: " + this.holderName);
+        System.out.println("Balance: " + this.balance);
+        System.out.println("---------------------------");
+    }
+
+    // Main Method
+    public static void main(String[] args) {
+
+        // Using Default Constructor
+        BankAccount acc1 = new BankAccount();
+        acc1.display();
+
+        // Using Parameterized Constructor
+        BankAccount acc2 = new BankAccount(101, "Rajiv Ranjan", 5000);
+        acc2.display();
+
+        acc2.deposit(2000);
+        acc2.withdraw(3000);
+        acc2.display();
+    }
+}
