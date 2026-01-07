@@ -1,0 +1,23 @@
+class Student {
+
+    // data / variables
+    int rollNo;
+    String name;
+
+    // method
+    void display() {
+        System.out.println(rollNo);
+        System.out.println(name);
+    }
+
+    public static void main(String[] args) {
+
+        // object creation
+        Student s1 = new Student();
+
+        s1.rollNo = 1;
+        s1.name = "Rahul";
+
+        s1.display();
+    }
+}
