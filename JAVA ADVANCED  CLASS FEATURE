@@ -1,18 +1,98 @@
-class Student {
-    int id;
-    String name;
 
-    Student(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-//JAVA ADVANCED CLASS AND FEATURE
-    void show() {
-        System.out.println(id + " " + name);
+class Product {
+
+    // 1️⃣ Encapsulation: private variables
+    private String productName;
+    private double price;
+
+    // 2️⃣ Static member (shared by all objects)
+    static String storeName = "General Store";
+
+    // Static method
+    static void changeStoreName(String newName) {
+        storeName = newName;
     }
 
+    // 3️⃣ Constructor Overloading
+
+    // Constructor 1: only productName
+    Product(String productName) {
+        this.productName = productName;
+        this.price = 0.0;
+    }
+
+    // Constructor 2: productName + price
+    Product(String productName, double price) {
+        this.productName = productName;
+        this.price = price;
+    }
+
+    // Getters and Setters
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    // 4️⃣ Method Overloading
+
+    // Percentage discount
+    void applyDiscount(double percentage) {
+        price = price - (price * percentage / 100);
+    }
+
+    // Flat discount
+    void applyDiscount(int flatAmount) {
+        price = price - flatAmount;
+    }
+
+    // 5️⃣ Object Interaction
+    boolean isCheaperThan(Product otherProduct) {
+        return this.price < otherProduct.price;
+    }
+
+    // Display method
+    void display() {
+        System.out.println("Store Name : " + storeName);
+        System.out.println("Product    : " + productName);
+        System.out.println("Price      : $" + price);
+        System.out.println("----------------------");
+    }
+
+    // 🔹 Main Method (Test)
     public static void main(String[] args) {
-        Student s1 = new Student(1, "ATUL SIR");
-        s1.show();
+
+        // Change store name
+        Product.changeStoreName("Tech World");
+
+        // Create products
+        Product laptop = new Product("Laptop", 1000);
+        Product headphones = new Product("Headphones");
+
+        // Update price using setter
+        headphones.setPrice(50);
+
+        // Apply discounts
+        laptop.applyDiscount(10.0);   // 10% discount
+        headphones.applyDiscount(5);  // $5 discount
+
+        // Compare prices
+        boolean result = headphones.isCheaperThan(laptop);
+        System.out.println("Are Headphones cheaper than Laptop? " + result);
+        System.out.println();
+
+        // Display product details
+        laptop.display();
+        headphones.display();
     }
 }
